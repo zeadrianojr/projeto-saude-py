@@ -1,2 +1,2 @@
-# projeto-saude-py 
+# Medication Management in Python
 
