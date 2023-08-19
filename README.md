@@ -1,2 +1,2 @@
-# Medication Management in Python
+# Gerenciador de Medicação em Python
 
