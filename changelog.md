@@ -17,4 +17,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [unreleased]: https://github.com/zeadrianojr/projeto-saude-py/tree/HEAD
 
-[0.0.1]: 
+[0.0.1]: https://github.com/zeadrianojr/projeto-saude-py/tree/0-0-1
