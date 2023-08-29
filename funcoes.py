@@ -1,6 +1,19 @@
+import csv
+import datetime
+
 lista_de_cadastros = list()
+#*todo: acessar tabela criada para editar?
+
+#  def carregar arquivo para edição
+'''with open('filename.csv') as csv_file:
+    csv_read=csv.reader(csv_file, delimiter=',')
+
+    
+'''
+#todo: concatenar dia + nome para criar arquivo csv
 
 
+#criar nova tabela
 def cadastrar_receita():
     cadastrando = True
     while cadastrando:
@@ -18,6 +31,7 @@ def cadastrar_receita():
         cadastro['descricao_tratamento'] = input(f'Descrição do tratamento: ')
         '''
         lista_de_cadastros.append(cadastro)
+        salvar_arquivo()
         op = input(f'\nContinuar cadastrando? 1-SIM ou 0-NÃO: ')
         while op not in '01': 
             op = input(f'\nCódigo Inválido!Continuar cadastrando? 1-SIM ou 0-NÃO: ')
@@ -28,12 +42,24 @@ def cadastrar_receita():
             cadastrando = False
 
 def salvar_arquivo():
+    
     if len(lista_de_cadastros)==0:
         print(f'\nSem lista sem cadastros! Nada a salvar!')
     else:
         #todo: implementar csv
-        #with open()
-        pass
+        headerLista = lista_de_cadastros[0].keys()
+        with open('tabelaMedicamentos.csv', 'w', newline='') as arquivo:
+            header_tabela = csv.DictWriter(arquivo, delimiter='|', fieldnames=headerLista)
+
+            header_tabela.writeheader()
+
+            line_content  = csv.writer(arquivo, delimiter='|')
+
+            for receita in lista_de_cadastros:
+                line_content.writerow(receita.values())
+
+
+        
      
 
 def mostrar_receita(lista_de_cadastros):
