@@ -1,35 +1,42 @@
 from funcoes import *
-from time import sleep
-
-
 
 def main():
   display_menu = True
   while display_menu:
-    print(f'\n:::Gerenciador de Medicação:::')
-    print(f'\n---MENU PRINCIPAL---')
-    print(f'''
-1 - Salvar Arquivo
-2 - Cadastrar receita
-          ''')
-    op = input(f'\nEscolha dos números da opções acima ou insira qualquer tecla para finalizar o programa: ')
-    if op not in '12':
-      print(f'\nSALVAMENTO AUTOMÁTICO DE SAÍDA...')
+    print(f'\n:::Receituário:::')
+    print(f'\n---MENU INICIAL---')
+    menu()
+    op = input(f'\nEscolha: ')
+    if op not in '12345678':
+      print(f'\nPROGRAMA FINALIZAD0!') 
       salvar_arquivo()
-      sleep(3)
-      print(f'\nPROGRAMA FINALIZAD0!')
-      display_menu = False
+      display_menu = False   
     else:
       if op == '1':
-        salvar_arquivo()
-        pass
-      elif op == '2':
-        cadastrar_receita()
-
-  
-  #todo: estrutura de menu
-
-
-
+        cadastro_paciente()
+      if op == '2':
+        cadastro_receita() 
+      if op == '3':
+        mostra_entidades()
+      if op == '4':
+        tipo_edicao = escolha_op()
+        if tipo_edicao == 'paciente':
+          editar_paciente()
+        else:
+          editar_receita()
+      if op == '5':
+        tipo_edicao = escolha_op()
+        if tipo_edicao == 'paciente':
+          print(f'ATENÇÃO ESSA OPÇÃO APAGA TODOS OS DADOS DO PACIENTE')
+          excluir_paciente()
+        else:
+          print(f'ATENÇÃO ESSA OPÇÃO APAGA APENAS A RECEITA DESEJADA')
+          excluir_receita()
+      if op == '6':
+        relatorio_cpf_nome()
+      if op == '7':
+        informativo_termino()
+      if op == '8':
+        relatorio_anotacoes_medicamento()
 
 main()
